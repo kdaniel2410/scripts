@@ -1,6 +1,8 @@
 #!/bin/bash
-
-source .env
+export HEALTHCHECK_DF_THRESHHOLD=10
+export HEALTHCHECK_FREE_THRESHHOLD=128
+export HEALTHCHECK_LOAD_THRESHHOLD=3
+export NTFY_TOPIC_URL=ntfy.sh/aISasQp
 
 available_mem=$(free -m | awk '/^Mem/ {print $7}')
 if [ $available_mem -lt $HEALTHCHECK_FREE_THRESHHOLD ]; then

@@ -1,6 +1,6 @@
 #!/bin/bash
-
-source .env
+export BORG_PASSPHRASE=
+export BORG_REPO=
 
 borg prune --list --stats --keep-daily 7 --keep-weekly 4
 
