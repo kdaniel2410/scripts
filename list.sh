@@ -1,0 +1,8 @@
+#!/bin/bash
+export BORG_PASSPHRASE=
+export BORG_REPO=
+
+export BORG_UNKNOWN_UNENCRYPTED_REPO_ACCESS_IS_OK=yes
+export BORG_RELOCATED_REPO_ACCESS_IS_OK=yes
+
+borg list
