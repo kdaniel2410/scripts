@@ -13,10 +13,10 @@ if [ $available_mem -lt $HEALTHCHECK_FREE_THRESHHOLD ]; then
     $NTFY_TOPIC_URL
 fi
 
-load_avg=$(uptime | awk -F'[a-z]:' '{ print $2 }' | awk '{ print $NF }')
+load_avg=$(cat /proc/loadavg | awk '{print $2}')
 if [ $load_avg \> $HEALTHCHECK_LOAD_THRESHHOLD ]; then
   curl \
-    -d "Load average $load_avg over past 15 minutes." \
+    -d "Load average $load_avg over past 10 minutes." \
     -H "Title: High load average on $(hostname)" \
     -H "Tags: warning" \
     $NTFY_TOPIC_URL
